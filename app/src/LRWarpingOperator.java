@@ -1,6 +1,4 @@
 
-import android.util.Log;
-
 import org.opencv.calib3d.Calib3d;
 import org.opencv.core.Core;
 import org.opencv.core.DMatch;
@@ -84,7 +82,7 @@ public class LRWarpingOperator {
     }
 
     private void finalizeResult() {
-        AttributeHolder.getSharedInstance().putValue(AttributeNames.WARPED_IMAGES_LENGTH_KEY, this.imagesToWarpList.length);
+//        AttributeHolder.getSharedInstance().putValue(AttributeNames.WARPED_IMAGES_LENGTH_KEY, this.imagesToWarpList.length);
 
         this.refKeypoint.release(); this.refKeypoint = null;
         for(MatOfDMatch dMatch: this.goodMatchList) {
