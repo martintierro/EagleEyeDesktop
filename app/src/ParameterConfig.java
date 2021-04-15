@@ -1,13 +1,12 @@
 //import android.content.Context;
 //import android.content.SharedPreferences;
-//import android.util.Log;
 
 /**
  * Created by NeilDG on 3/5/2016.
  */
 public class ParameterConfig {
 
-//    private final static String TAG = "ParameterConfig";
+    private final static String TAG = "ParameterConfig";
     private static ParameterConfig sharedInstance = null;
 
     public enum SRTechnique {
@@ -43,18 +42,18 @@ public class ParameterConfig {
 //            sharedInstance = new ParameterConfig(appContext);
 //        }
 //    }
-//
+
 //    public static void setScalingFactor(int scale) {
 //        sharedInstance.editorPrefs.putInt(SCALE_KEY, scale);
 //        sharedInstance.editorPrefs.commit();
 //
-//        Log.d(TAG, "Scaling set to in prefs: " +getScalingFactor());
-//        sharedInstance.scalingFactor = scale;
+//        //sharedInstance.scalingFactor = scale;
 //    }
 
-//    public static int getScalingFactor() {
+    public static int getScalingFactor() {
 //        return sharedInstance.sharedPrefs.getInt(SCALE_KEY, 1);
-//    }
+        return 2;
+    }
 
 //    public static void setTechnique(SRTechnique technique) {
 //        sharedInstance.currentTechnique = technique;
@@ -63,7 +62,7 @@ public class ParameterConfig {
 //    public static SRTechnique getCurrentTechnique() {
 //        return sharedInstance.currentTechnique;
 //    }
-
+//
 //    public static void setPrefs(String key, boolean value) {
 //        sharedInstance.editorPrefs.putBoolean(key, value);
 //        sharedInstance.editorPrefs.commit();

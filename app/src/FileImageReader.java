@@ -34,15 +34,15 @@ public class FileImageReader {
 	 */
 	public byte[] getBytesFromFile(String fileName, ImageFileAttribute.FileType fileType) {
 		File file = new File(FileImageWriter.getInstance().getFilePath() + "/" +fileName + ImageFileAttribute.getFileExtension(fileType));
-		
+
 		try {
 			if(file.exists()) {
 				FileInputStream inputStream = new FileInputStream(file);
-				
+
 				byte[] readBytes = new byte[(int) file.length()];
 				inputStream.read(readBytes);
 				inputStream.close();
-				
+
 				return readBytes;
 			}
 			else {
@@ -87,7 +87,7 @@ public class FileImageReader {
 //		String completeFilePath = FileImageWriter.getInstance().getFilePath() + "/" + fileName + ImageFileAttribute.getFileExtension(fileType);
 //		return BitmapFactory.decodeFile(completeFilePath);
 //	}
-//
+
 //	public Bitmap loadBitmapThumbnail(String fileName, ImageFileAttribute.FileType fileType, int width, int height) {
 //		Bitmap resized = ThumbnailUtils.extractThumbnail(this.loadBitmapFromFile(fileName, fileType), width, height);
 //		return resized;

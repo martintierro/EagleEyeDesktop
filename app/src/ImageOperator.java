@@ -202,7 +202,6 @@ public class ImageOperator {
                 int floorCol = (int) Math.round(xOffset) * scaling;
 
                 if(floorRow < hrMat.rows() && floorCol < hrMat.cols()) {
-                    //Log.d(TAG, "Debug values. xOffset: " +xOffset+ " yOffset: " +yOffset+ " X: " +floorCol+ " Y: " +floorRow);
                     hrMat.put(floorRow, floorCol, lrPixelData);
                 }
             }
@@ -288,26 +287,26 @@ public class ImageOperator {
         return downsampleMat;
     }
 
-//    public static void replacePatchOnROI(Mat sourceMat, int boundary, LoadedImagePatch sourcePatch, LoadedImagePatch replacementPatch) {
-//
-//        if(sourcePatch.getColStart() >= 0 && sourcePatch.getColEnd() < sourceMat.cols() && sourcePatch.getRowStart() >= 0 && sourcePatch.getRowEnd() < sourceMat.rows()) {
-//            Mat subMat = sourceMat.submat(sourcePatch.getRowStart(),sourcePatch.getRowEnd(), sourcePatch.getColStart(), sourcePatch.getColEnd());
-//            replacementPatch.getPatchMat().copyTo(subMat);
-//
-//            //attempt to perform blurring by extracting a parent mat at the borders of the submat
-//            int rowStart = sourcePatch.getRowStart() - boundary;
-//            int rowEnd = sourcePatch.getRowEnd() + boundary;
-//            int colStart = sourcePatch.getColStart() - boundary;
-//            int colEnd = sourcePatch.getColEnd() + boundary;
-//
-//            if(colStart >= 0 && colEnd < sourceMat.cols() && rowStart >= 0 && rowEnd < sourceMat.rows()) {
-//                Mat parentMat = sourceMat.submat(rowStart, rowEnd, colStart, colEnd);
-//                Mat blurMat = new Mat();
-//                Imgproc.blur(parentMat, blurMat, new Size(3,3));
-//                Core.addWeighted(parentMat, 1.5 , blurMat, -0.5, 0, parentMat);
-//                blurMat.release();
-//            }
-//
-//        }
-//    }
+    public static void replacePatchOnROI(Mat sourceMat, int boundary, LoadedImagePatch sourcePatch, LoadedImagePatch replacementPatch) {
+
+        if(sourcePatch.getColStart() >= 0 && sourcePatch.getColEnd() < sourceMat.cols() && sourcePatch.getRowStart() >= 0 && sourcePatch.getRowEnd() < sourceMat.rows()) {
+            Mat subMat = sourceMat.submat(sourcePatch.getRowStart(),sourcePatch.getRowEnd(), sourcePatch.getColStart(), sourcePatch.getColEnd());
+            replacementPatch.getPatchMat().copyTo(subMat);
+
+            //attempt to perform blurring by extracting a parent mat at the borders of the submat
+            int rowStart = sourcePatch.getRowStart() - boundary;
+            int rowEnd = sourcePatch.getRowEnd() + boundary;
+            int colStart = sourcePatch.getColStart() - boundary;
+            int colEnd = sourcePatch.getColEnd() + boundary;
+
+            if(colStart >= 0 && colEnd < sourceMat.cols() && rowStart >= 0 && rowEnd < sourceMat.rows()) {
+                Mat parentMat = sourceMat.submat(rowStart, rowEnd, colStart, colEnd);
+                Mat blurMat = new Mat();
+                Imgproc.blur(parentMat, blurMat, new Size(3,3));
+                Core.addWeighted(parentMat, 1.5 , blurMat, -0.5, 0, parentMat);
+                blurMat.release();
+            }
+
+        }
+    }
 }

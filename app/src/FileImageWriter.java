@@ -1,7 +1,6 @@
 /**
  * 
  */
-
 //import android.app.Activity;
 //import android.content.Context;
 //import android.graphics.Bitmap;
@@ -93,7 +92,6 @@ public class FileImageWriter {
 	public synchronized void saveMatrixToImage(Mat mat, String fileName, ImageFileAttribute.FileType fileType) {
 		File imageFile = new File(this.proposedPath, fileName + ImageFileAttribute.getFileExtension(fileType));
 		Imgcodecs.imwrite(imageFile.getAbsolutePath(), mat);
-
 	}
 
 	/*
@@ -117,8 +115,6 @@ public class FileImageWriter {
 
 		File imageFile = new File(dirFile.getPath(), fileName + ImageFileAttribute.getFileExtension(fileType));
 		Imgcodecs.imwrite(imageFile.getAbsolutePath(), mat);
-
-		//Log.d(TAG, "Saved " + imageFile.getAbsolutePath());
 	}
 
 //	public synchronized void saveHRResultToUserDir(Mat mat, ImageFileAttribute.FileType fileType) {
@@ -137,7 +133,6 @@ public class FileImageWriter {
 //		activity.runOnUiThread(new Runnable() {
 //			@Override
 //			public void run() {
-//				Toast.makeText(context, message, Toast.LENGTH_LONG).show();
 //			}
 //		});
 //
@@ -160,7 +155,6 @@ public class FileImageWriter {
 //		// Get the directory for the app's private pictures directory.
 //		File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM), albumName);
 //		if (!file.mkdirs()) {
-//			Log.d(TAG, "Directory not created");
 //		}
 //		return file;
 //	}
@@ -197,7 +191,7 @@ public class FileImageWriter {
 
 		fileOrDirectory.delete();
 	}
-	
+
 	public String getFilePath() {
 		return this.proposedPath;
 	}
