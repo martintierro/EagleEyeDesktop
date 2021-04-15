@@ -6,8 +6,6 @@ import java.util.concurrent.Semaphore;
  */
 
 public abstract class FlaggingThread extends Thread {
-    private final static String TAG = "FlaggingThread";
-
     protected Semaphore semaphore;
 
     public FlaggingThread(Semaphore semaphore) {

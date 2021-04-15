@@ -1,6 +1,3 @@
-
-import android.util.Log;
-
 import org.opencv.calib3d.Calib3d;
 import org.opencv.core.Core;
 import org.opencv.core.DMatch;
@@ -17,11 +14,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 
-//import neildg.com.eagleeyesr.io.ImageFileAttribute;
-//import neildg.com.eagleeyesr.io.FileImageWriter;
-//import neildg.com.eagleeyesr.model.AttributeHolder;
-//import neildg.com.eagleeyesr.model.AttributeNames;
-//import neildg.com.eagleeyesr.ui.progress_dialog.ProgressDialogHandler;
 
 /**
  * Perspective Alignment Module
@@ -84,8 +76,6 @@ public class LRWarpingOperator {
     }
 
     private void finalizeResult() {
-        AttributeHolder.getSharedInstance().putValue(AttributeNames.WARPED_IMAGES_LENGTH_KEY, this.imagesToWarpList.length);
-
         this.refKeypoint.release(); this.refKeypoint = null;
         for(MatOfDMatch dMatch: this.goodMatchList) {
             dMatch.release();
