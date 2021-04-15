@@ -1,7 +1,6 @@
 /**
  * 
  */
-
 //import android.app.Activity;
 //import android.content.Context;
 //import android.graphics.Bitmap;
@@ -63,46 +62,43 @@ public class FileImageWriter {
 	 * Images saved are automatically appended with a JPEG extension.
 //	 * @param imageData
 	 */
-//	public void saveImage(byte[] imageData, String fileName, neildg.com.eagleeyesr.io.ImageFileAttribute.FileType fileType) {
+//	public void saveImage(byte[] imageData, String fileName, ImageFileAttribute.FileType fileType) {
 //		try {
 //			if(imageData != null) {
-//				File processedImageFile = new File(this.proposedPath, fileName + neildg.com.eagleeyesr.io.ImageFileAttribute.getFileExtension(fileType));
+//				File processedImageFile = new File(this.proposedPath, fileName + ImageFileAttribute.getFileExtension(fileType));
 //				FileOutputStream fos = new FileOutputStream(processedImageFile);
 //				fos.write(imageData);
 //				fos.close();
 //			}
 //		}
 //		catch(IOException e) {
-//			Log.e(TAG, "Error writing image: " +e.getMessage());
 //		}
 //	}
 //
-//	public void saveBitmapImage(Bitmap bitmap, String fileName, neildg.com.eagleeyesr.io.ImageFileAttribute.FileType fileType) {
+//	public void saveBitmapImage(Bitmap bitmap, String fileName, ImageFileAttribute.FileType fileType) {
 //
 //        try {
-//            File processedImageFile = new File(this.proposedPath, fileName + neildg.com.eagleeyesr.io.ImageFileAttribute.getFileExtension(fileType));
+//            File processedImageFile = new File(this.proposedPath, fileName + ImageFileAttribute.getFileExtension(fileType));
 //            FileOutputStream out = new FileOutputStream(processedImageFile);
 //            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
 //            // NOTE: PNG is a lossless format, the compression factor (100) is ignored
 //			out.close();
-//            Log.d(TAG, "Saved: " +processedImageFile.getAbsolutePath());
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
 //	}
 //
-//	public void saveBitmapImage(Bitmap bitmap, String directory, String fileName, neildg.com.eagleeyesr.io.ImageFileAttribute.FileType fileType) {
+//	public void saveBitmapImage(Bitmap bitmap, String directory, String fileName, ImageFileAttribute.FileType fileType) {
 //		try {
 //			File dirFile = new File(this.proposedPath + "/" + directory);
 //			dirFile.mkdirs();
 //
-//			File processedImageFile = new File(dirFile.getPath(), fileName + neildg.com.eagleeyesr.io.ImageFileAttribute.getFileExtension(fileType));
+//			File processedImageFile = new File(dirFile.getPath(), fileName + ImageFileAttribute.getFileExtension(fileType));
 //
 //			FileOutputStream out = new FileOutputStream(processedImageFile);
 //			bitmap.compress(Bitmap.CompressFormat.JPEG, 100, out);
 //			// NOTE: PNG is a lossless format, the compression factor (100) is ignored
 //			out.close();
-//			Log.d(TAG, "Saved: " +processedImageFile.getAbsolutePath());
 //		} catch (IOException e) {
 //			e.printStackTrace();
 //		}
@@ -111,43 +107,38 @@ public class FileImageWriter {
 	public synchronized void saveMatrixToImage(Mat mat, String fileName, ImageFileAttribute.FileType fileType) {
 		File imageFile = new File(this.proposedPath, fileName + ImageFileAttribute.getFileExtension(fileType));
 		Imgcodecs.imwrite(imageFile.getAbsolutePath(), mat);
-
 	}
 
 	/*
 	 * Is only called if debug build mode is set to true
 	 */
-//	public synchronized void debugSaveMatrixToImage(Mat mat, String fileName, neildg.com.eagleeyesr.io.ImageFileAttribute.FileType fileType) {
+//	public synchronized void debugSaveMatrixToImage(Mat mat, String fileName, ImageFileAttribute.FileType fileType) {
 //		if(BuildMode.DEVELOPMENT_BUILD == false) {
 //			return;
 //		}
 //
-//		File imageFile = new File(this.proposedPath, fileName + neildg.com.eagleeyesr.io.ImageFileAttribute.getFileExtension(fileType));
+//		File imageFile = new File(this.proposedPath, fileName + ImageFileAttribute.getFileExtension(fileType));
 //		Imgcodecs.imwrite(imageFile.getAbsolutePath(), mat);
-//
-//		Log.d(TAG, "Saved " + imageFile.getAbsolutePath());
 //	}
-//
-//	public synchronized void saveMatrixToImage(Mat mat, String directory, String fileName, neildg.com.eagleeyesr.io.ImageFileAttribute.FileType fileType) {
-//		File dirFile = new File(this.proposedPath + "/" + directory);
-//		if(dirFile.mkdirs() == false) {
-//			dirFile.mkdir();
-//		}
-//
-//		File imageFile = new File(dirFile.getPath(), fileName + neildg.com.eagleeyesr.io.ImageFileAttribute.getFileExtension(fileType));
-//		Imgcodecs.imwrite(imageFile.getAbsolutePath(), mat);
-//
-//		//Log.d(TAG, "Saved " + imageFile.getAbsolutePath());
-//	}
-//
-//	public synchronized void saveHRResultToUserDir(Mat mat, neildg.com.eagleeyesr.io.ImageFileAttribute.FileType fileType) {
+
+	public synchronized void saveMatrixToImage(Mat mat, String directory, String fileName, ImageFileAttribute.FileType fileType) {
+		File dirFile = new File(this.proposedPath + "/" + directory);
+		if(dirFile.mkdirs() == false) {
+			dirFile.mkdir();
+		}
+
+		File imageFile = new File(dirFile.getPath(), fileName + ImageFileAttribute.getFileExtension(fileType));
+		Imgcodecs.imwrite(imageFile.getAbsolutePath(), mat);
+	}
+
+//	public synchronized void saveHRResultToUserDir(Mat mat, ImageFileAttribute.FileType fileType) {
 //		File albumDir = this.getAlbumStorageDir(ALBUM_EXTERNAL_NAME);
 //
 //		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd'T'HHmmss");
 //		String timeStamp = dateFormat.format(new Date());
 //		String imageFileName = "EagleEyeHD_" + timeStamp;
 //
-//		File imageFile = new File(albumDir.getPath(), imageFileName + neildg.com.eagleeyesr.io.ImageFileAttribute.getFileExtension(fileType));
+//		File imageFile = new File(albumDir.getPath(), imageFileName + ImageFileAttribute.getFileExtension(fileType));
 //		Imgcodecs.imwrite(imageFile.getAbsolutePath(), mat);
 //
 //		final String message = "Super HD image saved at: " +imageFile.getPath();
@@ -156,7 +147,6 @@ public class FileImageWriter {
 //		activity.runOnUiThread(new Runnable() {
 //			@Override
 //			public void run() {
-//				Toast.makeText(context, message, Toast.LENGTH_LONG).show();
 //			}
 //		});
 //
@@ -169,29 +159,26 @@ public class FileImageWriter {
 //				new String[] { srFile.toString() }, null,
 //				new MediaScannerConnection.OnScanCompletedListener() {
 //					public void onScanCompleted(String path, Uri uri) {
-//						Log.i("ExternalStorage", "Scanned " + path);
-//						Log.i("ExternalStorage", "-> uri=" + uri);
 //					}
 //				});
 //	}
-//
+
 //	private File getAlbumStorageDir(String albumName) {
 //		// Get the directory for the app's private pictures directory.
 //		File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM), albumName);
 //		if (!file.mkdirs()) {
-//			Log.d(TAG, "Directory not created");
 //		}
 //		return file;
 //	}
-//
-//	public synchronized void deleteImage(String fileName, neildg.com.eagleeyesr.io.ImageFileAttribute.FileType fileType) {
-//		File imageFile = new File(this.proposedPath, fileName + neildg.com.eagleeyesr.io.ImageFileAttribute.getFileExtension(fileType));
-//		imageFile.delete();
-//	}
-//
-//	public synchronized void deleteImage(String fileName, String directory, neildg.com.eagleeyesr.io.ImageFileAttribute.FileType fileType) {
+
+	public synchronized void deleteImage(String fileName, ImageFileAttribute.FileType fileType) {
+		File imageFile = new File(this.proposedPath, fileName + ImageFileAttribute.getFileExtension(fileType));
+		imageFile.delete();
+	}
+
+//	public synchronized void deleteImage(String fileName, String directory, ImageFileAttribute.FileType fileType) {
 //		File dirFile = new File(this.proposedPath + "/" + directory);
-//		File imageFile = new File(dirFile.getPath(), fileName + neildg.com.eagleeyesr.io.ImageFileAttribute.getFileExtension(fileType));
+//		File imageFile = new File(dirFile.getPath(), fileName + ImageFileAttribute.getFileExtension(fileType));
 //		imageFile.delete();
 //	}
 //
@@ -209,15 +196,15 @@ public class FileImageWriter {
 //		deleteRecursive(dirFile);
 //	}
 
-//	public static void deleteRecursive(File fileOrDirectory) {
-//		if (fileOrDirectory.isDirectory())
-//			for (File child : fileOrDirectory.listFiles())
-//				deleteRecursive(child);
-//
-//		fileOrDirectory.delete();
-//	}
-//
-//	public String getFilePath() {
-//		return this.proposedPath;
-//	}
+	public static void deleteRecursive(File fileOrDirectory) {
+		if (fileOrDirectory.isDirectory())
+			for (File child : fileOrDirectory.listFiles())
+				deleteRecursive(child);
+
+		fileOrDirectory.delete();
+	}
+
+	public String getFilePath() {
+		return this.proposedPath;
+	}
 }
