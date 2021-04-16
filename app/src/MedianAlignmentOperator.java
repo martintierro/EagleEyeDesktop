@@ -13,7 +13,6 @@ import java.util.concurrent.Semaphore;
  */
 
 public class MedianAlignmentOperator implements IOperator {
-    private final static String TAG = "ExposureAlignmentOperator";
 
     private Mat[] imageSequenceList;
     private String[] resultNames;
@@ -28,9 +27,10 @@ public class MedianAlignmentOperator implements IOperator {
 
         List<Mat> processMatList = Arrays.asList(this.imageSequenceList);
         mtbAligner.process(processMatList, processMatList);
+        System.out.println(processMatList.size());
 
-        for(int i = 1; i < processMatList.size(); i++) {
-            FileImageWriter.getInstance().saveMatrixToImage(processMatList.get(i), resultNames[i - 1], ImageFileAttribute.FileType.JPEG);
+        for(int i = 0; i < processMatList.size(); i++) {
+            FileImageWriter.getInstance().saveMatrixToImage(processMatList.get(i),  "temp",resultNames[i], ImageFileAttribute.FileType.JPEG);
         }
 
 //        AttributeHolder.getSharedInstance().putValue(AttributeNames.WARPED_IMAGES_LENGTH_KEY, processMatList.size() - 1);

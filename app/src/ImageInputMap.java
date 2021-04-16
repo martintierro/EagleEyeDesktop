@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ImageInputMap {
     private final static String TAG = "ImageInputMap";
-    private static ImageInputMap sharedInstance = new ImageInputMap();
+    private static ImageInputMap instance = new ImageInputMap();
 
     private List<String> imagePath = new ArrayList<>();
     private boolean hasUsedUri = false;
@@ -43,12 +43,12 @@ public class ImageInputMap {
      */
     public static void deletePlaceholderImages() {
 
-        if(sharedInstance.hasUsedUri == true) {
+        if(instance.hasUsedUri == true) {
             return;
         }
 
-        for(int i = 0; i < sharedInstance.imagePath.size(); i++) {
-            File dirFile = new File(sharedInstance.imagePath.get(i));
+        for(int i = 0; i < instance.imagePath.size(); i++) {
+            File dirFile = new File(instance.imagePath.get(i));
             FileImageWriter.deleteRecursive(dirFile);
         }
     }

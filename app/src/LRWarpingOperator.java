@@ -63,7 +63,7 @@ public class LRWarpingOperator {
 
             for(int i = 0; i < warpingWorkers.length; i++) {
                 Mat warpedMat = warpingWorkers[i].getWarpedMat();
-                FileImageWriter.getInstance().saveMatrixToImage(warpedMat, this.resultNames[i], ImageFileAttribute.FileType.JPEG);
+                FileImageWriter.getInstance().saveMatrixToImage(warpedMat, "temp", this.resultNames[i], ImageFileAttribute.FileType.JPEG);
 
                 this.imagesToWarpList[i].release();
                 warpedMat.release();

@@ -39,7 +39,7 @@ public class FileImageWriter {
 	public final static String ALBUM_NAME_PREFIX = "/SR";
 	public final static String ALBUM_EXTERNAL_NAME = "EagleEye Results";
 
-	private String proposedPath;
+	private String proposedPath = "D:\\Projects\\Thesis\\EagleEyeDesktop\\app";
 
 	/**
 	 * Saves a given image for viewing or later reuse in processing.

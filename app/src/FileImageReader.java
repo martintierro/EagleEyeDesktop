@@ -63,7 +63,17 @@ public class FileImageReader {
 			return Imgcodecs.imread(fileName);
 		}
 		else {
-			String completeFilePath = FileImageWriter.getInstance().getFilePath() + "/" + fileName + ImageFileAttribute.getFileExtension(fileType);
+			String completeFilePath = FileImageWriter.getInstance().getFilePath() + fileName + ImageFileAttribute.getFileExtension(fileType);
+			return Imgcodecs.imread(completeFilePath);
+		}
+	}
+
+	public Mat imReadOpenCV(String fileName, String directory, ImageFileAttribute.FileType fileType) {
+		if(fileName.toLowerCase().contains(".jpg") == true) {
+			return Imgcodecs.imread(fileName);
+		}
+		else {
+			String completeFilePath = FileImageWriter.getInstance().getFilePath() +"/"+ directory +"/"+ fileName + ImageFileAttribute.getFileExtension(fileType);
 			return Imgcodecs.imread(completeFilePath);
 		}
 	}

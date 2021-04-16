@@ -50,7 +50,7 @@ public class MeanFusionOperator implements IOperator {
 
         for(int i = 0; i < this.imageMatPathList.length; i++) {
             //load second mat
-            this.initialMat = FileImageReader.getInstance().imReadOpenCV(this.imageMatPathList[i], ImageFileAttribute.FileType.JPEG);
+            this.initialMat = FileImageReader.getInstance().imReadOpenCV(this.imageMatPathList[i], "temp", ImageFileAttribute.FileType.JPEG);
             //delete file. no longer needed.
             FileImageWriter.getInstance().deleteImage(this.imageMatPathList[i], ImageFileAttribute.FileType.JPEG);
 

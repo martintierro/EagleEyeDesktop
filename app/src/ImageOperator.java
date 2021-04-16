@@ -262,7 +262,6 @@ public class ImageOperator {
      * Performs interpolation using an existing interpolation algo by OPENCV
      */
     public static Mat performInterpolation(Mat fromMat, float scaling, int interpolationType) {
-
         int newRows = Math.round(fromMat.rows() * scaling);
         int newCols = Math.round(fromMat.cols() * scaling);
 

@@ -38,8 +38,7 @@ public class WarpResultEvaluator implements IOperator {
         int[] warpedDifferenceList = this.measureDifference(this.referenceMat, sobelReferenceMeasure, this.warpedMatNames);
         int[] medianDifferenceList = this.measureDifference(this.referenceMat, sobelReferenceMeasure, this.medianAlignedNames);
 
-        this.referenceMat.release();
-        //assessWarpedImages(sobelReferenceMeasure, warpedDifferenceList, this.warpedMatNames);
+        assessWarpedImages(sobelReferenceMeasure, warpedDifferenceList, this.warpedMatNames);
         this.chooseAlignedImages(warpedDifferenceList, medianDifferenceList, this.warpedMatNames, this.medianAlignedNames);
 
     }
@@ -47,7 +46,7 @@ public class WarpResultEvaluator implements IOperator {
     private int[] measureDifference(Mat referenceMat, int referenceSobelMeasure, String[] compareNames) {
         int[] warpedDifferenceList = new int[compareNames.length];
         for(int i = 0; i < compareNames.length; i++) {
-            Mat warpedMat = FileImageReader.getInstance().imReadOpenCV(compareNames[i], ImageFileAttribute.FileType.JPEG);
+            Mat warpedMat = FileImageReader.getInstance().imReadOpenCV(compareNames[i], "temp", ImageFileAttribute.FileType.JPEG);
 
             Mat maskMat = ImageOperator.produceMask(warpedMat);
             warpedMat.convertTo(warpedMat, CvType.CV_16UC(warpedMat.channels()));
