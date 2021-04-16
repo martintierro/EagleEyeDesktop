@@ -30,11 +30,12 @@ public class Main {
 
         for(int i = 0; i < listOfFiles.length - 9;i++){
             Mat reference = Imgcodecs.imread(listOfFiles[i].getPath());
+            System.out.println("Run: " + i);
             System.out.println("Reference: " + listOfFiles[i].getPath());
             String[] warpedImages = new String[9];
             for(int j = 1; j < 10; j++) {
                 warpedImages[j-1] = listOfFiles[i+j].getPath();
-                System.out.println("Reference: " + listOfFiles[i+j].getPath());
+                System.out.println("To Align: " + listOfFiles[i+j].getPath());
 
             }
 
