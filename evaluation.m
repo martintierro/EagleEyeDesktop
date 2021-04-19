@@ -16,8 +16,8 @@ for idx_video = 1:length(video_name)
     disp(video_path)
     n=numel(a)-1
     disp(n)
-    for idx_frame = 9:10:n 				% exclude the first and last 2 frames
-        img_hr = imread(['D:/Projects/Thesis/Baseline B/SOF-VSR/TIP/data/test/Set/',video_name{idx_video},'/hr/hr_', num2str(idx_frame,'%d'),'.png']);
+    for idx_frame = 9:n 				% exclude the first and last 2 frames
+        img_hr = imread(['D:/Projects/Thesis/Baseline B/SOF-VSR/TIP/data/test/Set/',video_name{idx_video},'/hr/hr_', num2str(idx_frame-9,'%d'),'.png']);
         img_sr = imread(['app/IO/',video_name{idx_video},'/HR_', num2str(idx_frame-9,'%d'),'.png']);
         
         h = min(size(img_hr, 1), size(img_sr, 1));
