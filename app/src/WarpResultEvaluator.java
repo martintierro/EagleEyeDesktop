@@ -95,12 +95,12 @@ public class WarpResultEvaluator implements IOperator {
         for(int i = 0; i < this.chosenAlignedNames.length; i++) {
             float absDiffFromMean = Math.abs(warpedResults[i] - warpedMean);
             float medianAlignDiff = Math.abs(medianAlignedResults[i] - warpedMean);
-            if(warpedResults[i] < medianAlignedResults[i] && absDiffFromMean < MAX_THRESHOLD) {
-                this.chosenAlignedNames[i] = warpedMatNames[i];
-            }
-            else {
-                this.chosenAlignedNames[i] = medianAlignedNames[i];
-            }
+//            if(warpedResults[i] < medianAlignedResults[i] && absDiffFromMean < MAX_THRESHOLD) {
+            this.chosenAlignedNames[i] = warpedMatNames[i];
+//            }
+//            else {
+//                this.chosenAlignedNames[i] = medianAlignedNames[i];
+//            }
         }
     }
 

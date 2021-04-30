@@ -231,7 +231,7 @@ public class LRWarpingOperator {
                 //do nothing. not enough features for warping
                 Mat warpedMat = new Mat();
                 inputMat.copyTo(warpedMat);
-
+                System.out.println("Do nothing. not enough features for warping");
                 homography.release();
 
                 return warpedMat;

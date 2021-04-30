@@ -94,7 +94,6 @@ public class ImageOperator {
         Mat referenceMat = new Mat(); inputMat.copyTo(referenceMat);
         Mat gradX = new Mat(); Mat gradY = new Mat();
         Mat referenceSobelMat = new Mat();
-
         if(applyBlur) {
             Imgproc.blur(referenceMat, referenceMat, new Size(3,3));
         }

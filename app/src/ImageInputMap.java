@@ -53,12 +53,12 @@ public class ImageInputMap {
         }
     }
 
-//    public static String getInputImage(int index) {
-//        return sharedInstance.imagePath.get(index);
-//    }
-//
-//    public static int numImages() {
-//        return sharedInstance.imagePath.size();
-//    }
+    public static String getInputImage(int index) {
+        return instance.imagePath.get(index);
+    }
+
+    public static int numImages() {
+        return instance.imagePath.size();
+    }
 
 }
