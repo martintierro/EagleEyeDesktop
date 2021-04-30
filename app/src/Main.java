@@ -16,8 +16,8 @@ import java.util.concurrent.Semaphore;
 public class Main {
     public static void main(String[] args) throws IOException {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        String vid = "\\[01] KITTI - City";
-        File folder = new File("D:\\Projects\\Thesis\\Chosen Videos\\LR Frames"+ vid+"\\lr_x2_BI");
+        String vid = "\\[02] KITTI - Person";
+        File folder = new File("E:\\Projects\\Thesis\\Chosen Videos\\LR Frames"+ vid+"\\lr_x2_BI");
 //        String vid = "\\Jade's Images";
 //        File folder = new File("D:\\Projects\\Thesis\\Photos\\Safety Check" + vid + "\\lr_x2_BI" );
         File[] listOfFiles = folder.listFiles();
