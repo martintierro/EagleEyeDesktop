@@ -3,6 +3,7 @@ clear
 %% evaluation on Test Set
 addpath('metrics')
 video_name = {'[01] KITTI - City','[02] KITTI - Person','[03] KITTI - Campus','[04] VIRAT Court','[05] VIRAT Student Campus','[06] VIRAT Full Parking Lot','[07] Wide Area','[08] Human Interaction','[09] Edinburgh Office','[10] MMDA Day','[11] Archer_s Eye','[12] Pasay Bike Incident','[13] Bus','[14] Convenience Store','[15] Retail Store','[16] Grocery Theft','[17] Abbey Road','[18] Wolves Highway','[19] Restaurant','[20] Halloween'};
+%video_name = {'[20] Halloween',};
 %video_name = {'[01] KITTI - City','[02] KITTI - Person', '[03] KITTI - Campus'}
 psnr_set = [];
 ssim_set = [];

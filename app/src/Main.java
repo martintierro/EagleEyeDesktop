@@ -3,20 +3,22 @@ import org.opencv.core.Mat;
 import org.opencv.core.MatOfDMatch;
 import org.opencv.core.MatOfKeyPoint;
 import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.imgproc.Imgproc;
 
-import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
+import java.util.Scanner;
 import java.util.concurrent.Semaphore;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        String vid = "\\[02] KITTI - Person";
+
+        String vid = "\\";
+        System.out.println("Enter video name: ");
+        Scanner sc = new Scanner(System.in);
+        vid += sc.nextLine();
+
         File folder = new File("E:\\Projects\\Thesis\\Chosen Videos\\LR Frames"+ vid+"\\lr_x2_BI");
 //        String vid = "\\Jade's Images";
 //        File folder = new File("D:\\Projects\\Thesis\\Photos\\Safety Check" + vid + "\\lr_x2_BI" );

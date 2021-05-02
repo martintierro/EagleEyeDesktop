@@ -32,7 +32,6 @@ public class SharpnessMeasure {
         double sum = 0;
         for(int i = 0; i < edgeMatList.length; i++) {
             sharpnessResult.sharpnessValues[i] = this.measure(edgeMatList[i]);
-            System.out.println("Sharpness :" + sharpnessResult.sharpnessValues[i]);
             sum += sharpnessResult.sharpnessValues[i];
         }
 
